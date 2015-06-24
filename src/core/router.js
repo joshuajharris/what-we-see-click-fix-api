@@ -1,7 +1,13 @@
 var restify = require('restify'),
     fs = require('fs');
 
-// load controllers
+var controllers = {},
+    controllers_path = process.cwd() + '/src/controllers';
+fs.readdirSync(controllers_path).forEach(function(file){
+  if(/.*(.js)$/.test(file)) {
+    controllers[file.split('.')[0]] = require(controllers_path + '/' + file);
+  }
+});
 
 var server = restify.createServer();
 
@@ -9,9 +15,7 @@ server
   .use(restify.fullResponse())
   .use(restify.bodyParser())
 
-server.get('/', function(req, res, next) {
-  res.send("hello world");
-});
+server.get('/', controllers.test.home);
 
 var port = process.env.PORT || 3000;
 server.listen(port, function(err) {
