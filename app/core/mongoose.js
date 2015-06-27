@@ -1,8 +1,10 @@
 var mongoose = require('mongoose'),
+    config = require(process.cwd() + '/config.js'),
     fs = require('fs'),
-    models_path = process.cwd() + '/src/models'
+    models_path = process.cwd() + '/app/models'
 
-mongoose.connect(process.env.MONGO_URL, {server:{auto_reconnect:true}});
+//mongoose.connect(process.env.MONGO_URL, {server:{auto_reconnect:true}});
+mongoose.connect(config.mongo.uri, {server:{auto_reconnect:true}});
 var db = mongoose.connection;
 
 db.on('error', function (err) {
