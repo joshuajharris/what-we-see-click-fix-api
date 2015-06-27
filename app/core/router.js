@@ -17,6 +17,7 @@ server
 
 server.get('/', controllers.test.home);
 server.get('/issue', controllers.issue.view);
+server.post('/issue', controllers.issue.create);
 
 var port = process.env.PORT || 3000;
 server.listen(port, function(err) {
