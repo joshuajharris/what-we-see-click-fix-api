@@ -13,10 +13,11 @@ var server = restify.createServer();
 
 server
   .use(restify.fullResponse())
-  .use(restify.bodyParser())
+  .use(restify.bodyParser());
 
 server.get('/', controllers.test.home);
 server.get('/issue', controllers.issue.view);
+server.get('/issue/:id', controllers.issue.viewById);
 server.post('/issue', controllers.issue.create);
 
 var port = process.env.PORT || 3000;
