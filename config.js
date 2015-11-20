@@ -1,5 +1,5 @@
 var config = {
-  apiUrl: 'https://seeclickfix.com/api/v2/places?address='
+  apiUrl: 'https://seeclickfix.com/api/v2/'
 };
 
 module.exports = config;
