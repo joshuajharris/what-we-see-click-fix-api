@@ -2,12 +2,7 @@
   "name": "what-we-see-click-fix-api",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
-  "dependencies": {
-    "mongoose": "^4.0.6",
-    "restify": "^3.0.3"
-  },
-  "devDependencies": {},
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/joshuajharris/what-we-see-click-fix-api/issues"
   },
-  "homepage": "https://github.com/joshuajharris/what-we-see-click-fix-api#readme"
+  "homepage": "https://github.com/joshuajharris/what-we-see-click-fix-api#readme",
+  "dependencies": {
+    "restify": "^4.0.3"
+  }
 }
