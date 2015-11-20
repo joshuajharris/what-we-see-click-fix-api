@@ -1,19 +1,20 @@
 var restify = require('restify');
 var config = require('../config');
 
-var Bootstrap = function(env) {
+var Bootstrap = function() {
   this.init = function() {
-    // var config = new AppConfig(env);
-
     var server = restify.createServer();
+    server.use(restify.acceptParser(server.acceptable));
+    server.use(restify.queryParser());
+    server.use(restify.bodyParser());
 
-    server.get('/', function(req, res, next) {
-      res.send('Hello World');
-      next();
-    });
+    var HomeController = require('./controllers/homeController.js');
+
+    var homeController = new HomeController(server, config);
+    homeController.initRoutes();
 
     return server;
-  }
+  };
 
   return this;
 }

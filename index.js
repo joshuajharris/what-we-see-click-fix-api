@@ -1,9 +1,10 @@
-var Bootstrap = require('./app/Bootstrap');
+var port = process.env.PORT || 8080;
 
-var app = new Bootstrap('dev');
+var Bootstrap = require('./app/Bootstrap');
+var app = new Bootstrap();
 
 var server = app.init();
 
-server.listen(8080, function(){
+server.listen(port, function(){
   console.log('Server has started on port 8080');
 });
